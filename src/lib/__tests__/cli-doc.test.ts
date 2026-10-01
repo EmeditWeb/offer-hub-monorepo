@@ -7,7 +7,7 @@ describe("docs/guide/cli", () => {
     expect(doc).not.toBeNull();
     expect(doc!.frontmatter.title).toBe("CLI Tool");
     expect(doc!.frontmatter.section).toBe("Guides");
-    expect(doc!.frontmatter.order).toBe(24);
+    expect(doc!.frontmatter.order).toBe(25);
   });
 
   it("documents configuration resolution priority order accurately", () => {
