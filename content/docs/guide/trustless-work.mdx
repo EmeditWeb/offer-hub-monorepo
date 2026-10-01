@@ -237,12 +237,13 @@ stateDiagram-v2
 
     ESCROW_CREATING --> ESCROW_FUNDING: Escrow created in TW
     ESCROW_FUNDING --> ESCROW_FUNDED: POST /orders/{id}/escrow/fund
+    ESCROW_FUNDING --> IN_PROGRESS: Funding confirmed (fast path)
 
     ESCROW_FUNDED --> IN_PROGRESS: Work starts
 
-    IN_PROGRESS --> RELEASE_REQUESTED: POST /orders/{id}/release
-    IN_PROGRESS --> REFUND_REQUESTED: POST /orders/{id}/refund
-    IN_PROGRESS --> DISPUTED: POST /orders/{id}/disputes
+    IN_PROGRESS --> RELEASE_REQUESTED: POST /orders/{id}/resolution/release
+    IN_PROGRESS --> REFUND_REQUESTED: POST /orders/{id}/resolution/refund
+    IN_PROGRESS --> DISPUTED: POST /orders/{id}/resolution/dispute
 
     RELEASE_REQUESTED --> RELEASED: TW confirms release
     REFUND_REQUESTED --> REFUNDED: TW confirms refund
